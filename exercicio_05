@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== Cálculo de imposto sobre vendas ===");
+
+        Console.Write("Digite o custo do item: R$ ");
+        double custo = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite a taxa de imposto (%): ");
+        double taxaImposto = double.Parse(Console.ReadLine());
+
+        double valorComImposto = SomaImposto(taxaImposto, custo);
+
+        Console.WriteLine($"\nO valor do item com imposto é: R$ {valorComImposto:F2}");
+    }
+
+    // Função que adiciona imposto ao custo
+    static double SomaImposto(double taxaImposto, double custo)
+    {
+        return custo + (custo * taxaImposto / 100.0);
+    }
+}
