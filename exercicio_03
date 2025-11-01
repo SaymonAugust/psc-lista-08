@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== Soma de três números ===");
+
+        Console.Write("Digite o primeiro número: ");
+        int a = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o segundo número: ");
+        int b = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o terceiro número: ");
+        int c = int.Parse(Console.ReadLine());
+
+        int resultado = SomaTres(a, b, c);
+        Console.WriteLine($"\nA soma dos três números é: {resultado}");
+    }
+
+    // Função que recebe três números e retorna a soma
+    static int SomaTres(int x, int y, int z)
+    {
+        return x + y + z;
+    }
+}
