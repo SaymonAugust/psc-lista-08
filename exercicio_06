@@ -1,0 +1,61 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        char repetir;
+
+        do
+        {
+            Console.WriteLine("=== Conversão de horário 24h para 12h ===");
+            Console.Write("Digite a hora (0-23): ");
+            int hora = int.Parse(Console.ReadLine());
+
+            Console.Write("Digite os minutos (0-59): ");
+            int minutos = int.Parse(Console.ReadLine());
+
+            char ampm;
+            int hora12 = ConverterPara12Horas(hora, out ampm);
+
+            ExibirHora12(hora12, minutos, ampm);
+
+            Console.Write("\nDeseja converter outro horário? (S/N): ");
+            repetir = char.Parse(Console.ReadLine().ToUpper());
+            Console.WriteLine();
+
+        } while (repetir == 'S');
+    }
+
+    // Função que converte hora de 24h para 12h
+    static int ConverterPara12Horas(int hora24, out char ampm)
+    {
+        if (hora24 == 0)
+        {
+            ampm = 'A';
+            return 12; // meia-noite
+        }
+        else if (hora24 == 12)
+        {
+            ampm = 'P';
+            return 12; // meio-dia
+        }
+        else if (hora24 > 12)
+        {
+            ampm = 'P';
+            return hora24 - 12;
+        }
+        else
+        {
+            ampm = 'A';
+            return hora24;
+        }
+    }
+
+    // Função que exibe a hora no formato 12h
+    static void ExibirHora12(int hora, int minutos, char ampm)
+    {
+        string sufixo = ampm == 'A' ? "A.M." : "P.M.";
+        Console.WriteLine($"Horário no formato 12h: {hora}:{minutos:D2} {sufixo}");
+    }
+}
