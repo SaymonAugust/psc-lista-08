@@ -1,0 +1,24 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("=== Verifica se o número é positivo ===");
+
+        Console.Write("Digite um número: ");
+        int numero = int.Parse(Console.ReadLine());
+
+        char resultado = PositivoOuNegativo(numero);
+        Console.WriteLine($"\nO resultado é: {resultado}");
+    }
+
+    // Função que retorna 'P' se positivo e 'N' se zero ou negativo
+    static char PositivoOuNegativo(int valor)
+    {
+        if (valor > 0)
+            return 'P';
+        else
+            return 'N';
+    }
+}
